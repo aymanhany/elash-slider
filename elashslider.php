@@ -6,6 +6,8 @@
  * Version:           1.0.0
  * Author:            Ayman Elash
  * Author Uri: facebook.com/wordpressace
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
 
