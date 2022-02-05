@@ -131,6 +131,7 @@ class ElashSliderPlugin
                 do_settings_sections('elash_slider');
                 submit_button();
                 ?>
+                <h3>Please use this shortcode to display the slider <strong>[elashslider]</strong></h3>
             </form>
         </div>
 <?php
