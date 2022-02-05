@@ -15,3 +15,6 @@ very simple slider to slide images based on slick JS jquery library, no fancy wo
 
 == Installation ==
 install via WordPress plugin installer
+
+== How to use ==
+Create a slide as a post from the elash slider post type shown on the menu of the dashboard and attach a post thumbnail as a slider image, the title of the post will be used as a text above the overlay of the slider.
