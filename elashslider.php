@@ -45,70 +45,70 @@ class ElashSliderPlugin
 
     function settings()
     {
-        add_settings_section('elsection', esc_attr__( 'Slider Options', 'elslider' ), null, 'elash_slider');
+        add_settings_section('elsection', esc_attr__('Slider Options', 'elslider'), null, 'elash_slider');
 
-        add_settings_field('el_slidesToShow', esc_attr__( 'Slides To Show', 'elslider' ), array($this, 'el_slidesToShowHtml'), 'elash_slider', 'elsection');
+        add_settings_field('el_slidesToShow', esc_attr__('Slides To Show', 'elslider'), array($this, 'el_slidesToShowHtml'), 'elash_slider', 'elsection');
         register_setting('eloptions', 'el_slidesToShow', array("sanitize_callback" => "sanitize_text_field"));
 
-        add_settings_field('el_slidesToScroll', esc_attr__( 'Slides to scroll', 'elslider'), array($this, 'el_slidesToScrollHtml'), 'elash_slider', 'elsection');
+        add_settings_field('el_slidesToScroll', esc_attr__('Slides to scroll', 'elslider'), array($this, 'el_slidesToScrollHtml'), 'elash_slider', 'elsection');
         register_setting('eloptions', 'el_slidesToScroll', array("sanitize_callback" => "sanitize_text_field"));
 
-        add_settings_field('el_title', esc_attr__( 'Show Title ?', 'elslider'), array($this, 'el_titleHtml'), 'elash_slider', 'elsection');
+        add_settings_field('el_title', esc_attr__('Show Title ?', 'elslider'), array($this, 'el_titleHtml'), 'elash_slider', 'elsection');
         register_setting('eloptions', 'el_title', array("sanitize_callback" => "sanitize_text_field"));
 
-        add_settings_field('el_autoplay', esc_attr__( 'Autoplay ?', 'elslider'), array($this, 'el_autoplayHtml'), 'elash_slider', 'elsection');
+        add_settings_field('el_autoplay', esc_attr__('Autoplay ?', 'elslider'), array($this, 'el_autoplayHtml'), 'elash_slider', 'elsection');
         register_setting('eloptions', 'el_autoplay', array("sanitize_callback" => "sanitize_text_field"));
 
-        add_settings_field('el_speed', esc_attr__( 'Autoplay speed in ms', 'elslider'), array($this, 'el_speedHtml'), 'elash_slider', 'elsection');
+        add_settings_field('el_speed', esc_attr__('Autoplay speed in ms', 'elslider'), array($this, 'el_speedHtml'), 'elash_slider', 'elsection');
         register_setting('eloptions', 'el_speed', array("sanitize_callback" => "sanitize_text_field"));
 
-        add_settings_field('el_overlay', esc_attr__( 'Show Overlay ?', 'elslider'), array($this, 'el_overlayHtml'), 'elash_slider', 'elsection');
+        add_settings_field('el_overlay', esc_attr__('Show Overlay ?', 'elslider'), array($this, 'el_overlayHtml'), 'elash_slider', 'elsection');
         register_setting('eloptions', 'el_overlay', array("sanitize_callback" => "sanitize_text_field", "default" => "1"));
 
-        add_settings_field('el_overlayColor', esc_attr__( 'Overlay Color', 'elslider'), array($this, 'el_overlayColorHtml'), 'elash_slider', 'elsection');
+        add_settings_field('el_overlayColor', esc_attr__('Overlay Color', 'elslider'), array($this, 'el_overlayColorHtml'), 'elash_slider', 'elsection');
         register_setting('eloptions', 'el_overlayColor', array("sanitize_callback" => "sanitize_text_field"));
     }
 
     function el_slidesToShowHtml()
     {
 ?>
-        <input type="number" name="el_slidesToShow" value="<?php echo get_option('el_slidesToShow'); ?>" />
+        <input type="number" name="el_slidesToShow" value="<?php echo esc_attr(get_option('el_slidesToShow')); ?>" />
     <?php
     }
     function el_slidesToScrollHtml()
     {
     ?>
-        <input type="number" name="el_slidesToScroll" value="<?php echo get_option('el_slidesToScroll'); ?>" />
+        <input type="number" name="el_slidesToScroll" value="<?php echo esc_attr(get_option('el_slidesToScroll')); ?>" />
     <?php
     }
     function el_autoplayHtml()
     {
     ?>
-        <input type="checkbox" name="el_autoplay" value="1" <?php checked(get_option('el_autoplay'), '1'); ?> />
+        <input type="checkbox" name="el_autoplay" value="1" <?php checked(esc_attr(get_option('el_autoplay'), '1')); ?> />
     <?php
     }
     function el_titleHtml()
     {
     ?>
-        <input type="checkbox" name="el_title" value="1" <?php checked(get_option('el_title'), '1'); ?> />
+        <input type="checkbox" name="el_title" value="1" <?php checked(esc_attr(get_option('el_title'), '1')); ?> />
     <?php
     }
     function el_overlayHtml()
     {
     ?>
-        <input type="checkbox" name="el_overlay" value="1" <?php checked(get_option('el_overlay'), '1'); ?> />
+        <input type="checkbox" name="el_overlay" value="1" <?php checked(esc_attr(get_option('el_overlay'), '1')); ?> />
     <?php
     }
     function el_speedHtml()
     {
     ?>
-        <input type="number" name="el_speed" value="<?php echo get_option('el_speed') ?>" />
+        <input type="number" name="el_speed" value="<?php echo esc_attr(get_option('el_speed')); ?>" />
     <?php
     }
     function el_overlayColorHtml()
     {
     ?>
-        <input type="text" name="el_overlayColor" value="<?php echo get_option('el_overlayColor'); ?>" class="my-color-field" />
+        <input type="text" name="el_overlayColor" value="<?php echo esc_attr(get_option('el_overlayColor')); ?>" class="my-color-field" />
     <?php
     }
 
@@ -124,7 +124,7 @@ class ElashSliderPlugin
 
     ?>
         <div class="wrap">
-            <h1><?php esc_attr__( 'Elash Slider', 'elslider' ) ?></h1>
+            <h1><?php esc_attr__('Elash Slider', 'elslider') ?></h1>
             <form method="POST" action="options.php">
                 <?php
                 settings_fields('eloptions');
@@ -190,7 +190,7 @@ class ElashSliderPlugin
             $show_title = "false";
         }
 
-        $content .= '<div class="slider-container"><div class="slider" data-slides="' . get_option('el_slidesToShow') . '" data-scroll="' . get_option( 'el_slidesToScroll' ) . '" data-play="' . get_option( 'el_autoplay' ) . '" data-spedd="' . get_option( 'el_speed' ) . '" >';
+        $content .= '<div class="slider-container"><div class="slider" data-slides="' . get_option('el_slidesToShow') . '" data-scroll="' . get_option('el_slidesToScroll') . '" data-play="' . get_option('el_autoplay') . '" data-spedd="' . get_option('el_speed') . '" >';
         $args = array(
             'post_type' => 'slide',
             'posts_per_page' => -1,
@@ -201,7 +201,7 @@ class ElashSliderPlugin
         if ($slides->have_posts()) :
             while ($slides->have_posts()) :
                 $slides->the_post();
-                $content .= '<div class="slide" style="position:relative"><img src="' . get_the_post_thumbnail_url() . '" width="100%" /><div class="el-overlay '. (get_option( 'el_overlay' ) == '1' ? '' : 'd-none') .'" style="background-color:' . get_option('el_overlayColor') . '">' . (($show_title == "true") ? '<h2 class="el-slider-title">' . get_the_title() . '</h2>' : '')  . '</div></div>';
+                $content .= '<div class="slide" style="position:relative"><img src="' . get_the_post_thumbnail_url() . '" width="100%" /><div class="el-overlay ' . (esc_attr(get_option('el_overlay')) == '1' ? '' : 'd-none') . '" style="background-color:' . esc_attr(get_option('el_overlayColor')) . '">' . (($show_title == "true") ? '<h2 class="el-slider-title">' . get_the_title() . '</h2>' : '')  . '</div></div>';
             endwhile;
         endif;
         $content .= '</div></div>';
