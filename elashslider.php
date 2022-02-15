@@ -190,8 +190,7 @@ class ElashSliderPlugin
             $show_title = "false";
         }
 
-        $content .= '<div class="slider-container"><div class="slider" data-slides="' . get_option('el_slidesToShow') . '" data-scroll="' . get_option('el_slidesToScroll') . '" data-play="' . get_option('el_autoplay') . '" data-spedd="' . get_option('el_speed') . '" >';
-        $args = array(
+$content .= '<div class="slider-container"><div class="slider" data-slides="' . esc_attr(get_option('el_slidesToShow')) . '" data-scroll="' . esc_attr(get_option('el_slidesToScroll')) . '" data-play="' . esc_attr(get_option('el_autoplay')) . '" data-spedd="' . get_option('el_speed') . '" >';        $args = array(
             'post_type' => 'slide',
             'posts_per_page' => -1,
             'orderby' => 'date',
